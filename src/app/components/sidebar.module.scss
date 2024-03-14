@@ -38,3 +38,21 @@ sidebar.tsx.sidebar {
   position: relative;
   margin: 15px auto 0;
 }
+
+//按钮样式实现了根据鼠标移入和移出来控制图标的显示与隐藏
+//当鼠标移入按钮时，图标逐渐显示出来，透明度从0变为1。
+//当鼠标移出按钮时，图标逐渐隐藏，透明度从1变为0。
+.action-button {
+  display: inline-flex;
+  margin-top: 3px;
+  margin-left: 5px;
+}
+
+.action-button svg {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.action-button:hover svg {
+  opacity: 1;
+}

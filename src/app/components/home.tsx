@@ -8,15 +8,21 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
+
 import dynamic from "next/dynamic";
 import {Path} from "@/app/constants";
+
+import {useAppConfig} from "../store/config";
 
 const Chat = dynamic(async () => (await import("./chat/chat")).Chat);
 const Role = dynamic(async () => (await import("./role/role")).Role);
 
+
 function Screen() {
+    const config = useAppConfig();
     return (
-        <div className={styles.container}>
+        //根据配置类中的tightBorder属性动态修改（true）全屏：（false）非全屏，
+        <div className={`${config.tightBorder ? styles["tight-container"] : styles.container}`}>
             {/* 工具菜单 */}
             <SideBar/>
 

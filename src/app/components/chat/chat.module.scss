@@ -1,0 +1,12 @@
+.chat {
+  top: 0;
+  width: var(--window-content-width) + 60px;
+  height: var(--full-height);
+  /*保留元素正常文档流位置的同时，对其进行微调或与其后代元素进行相对定位。*/
+  position: relative;
+  /*背景色*/
+  background-color: #52a3a6;
+  text-align: center;
+  /*文字颜色*/
+  color: #fffefe;
+}

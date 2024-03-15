@@ -1,4 +1,4 @@
-import { Home } from "./components/home";
+import { Home } from "./pages/home/home";
 
 // 这段代码是一个 React 应用程序的入口文件，其中定义了一个名为 App 的异步函数组件。它包含以下几个要点：
 //

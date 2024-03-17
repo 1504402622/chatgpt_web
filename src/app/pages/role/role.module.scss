@@ -3,9 +3,7 @@
   width: var(--window-content-width) + 60px;
   height: var(--full-height);
   position: relative;
-  /*背景色*/
-  background-color: #018eb4;
-  text-align: center;
-  /*背景色*/
-  color: #fffefe;
+  background-color: #fff;
+  color: #999;
+  display: flex;
 }

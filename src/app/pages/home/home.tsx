@@ -2,6 +2,7 @@
 
 import styles from "./home.module.scss";
 import {SideBar} from "../../components/sidebar/sidebar";
+import {DialogMessage} from "@/app/components/dialog/dialog-message";
 
 import {
     HashRouter as Router,
@@ -19,7 +20,6 @@ const Role = dynamic(async () => (await import("../role/role")).Role);
 function Screen() {
     const config = useAppConfig();
     return (
-        //根据配置类中的tightBorder属性动态修改（true）全屏：（false）非全屏，
         <div className={`${config.tightBorder ? styles["tight-container"] : styles.container}`}>
             {/* 工具菜单 */}
             <SideBar/>
@@ -28,7 +28,9 @@ function Screen() {
             <div className={styles["window-content"]}>
                 <Routes>
                     <Route path={Path.Home} element={<Chat/>}/>
-                    <Route path={Path.Chat} element={<Chat/>}/>
+                    <Route path={Path.Chat} element={<Chat/>}>
+                        <Route path=":id" element={<DialogMessage/>}/>
+                    </Route>
                     <Route path={Path.Role} element={<Role/>}/>
                 </Routes>
             </div>

@@ -1,8 +1,7 @@
 // @mixin 是 Sass 中的一个关键字，用于创建可重用的 CSS 样式规则。
 // 通过使用 @mixin，可以创建一组 CSS 样式规则，然后在需要的地方通过 @include 将这组样式规则应用到需要的选择器上。
 // 这样可以避免重复编写相同的 CSS 样式规则，提高样式代码的可维护性和可重用性。
-
-//设置窗口为非全屏
+//设置为非全屏
 @mixin container {
   background-color: var(--white);
   border: var(--border-in-light);
@@ -28,7 +27,6 @@
 
 // 使用 @media，可以根据设备的屏幕尺寸或方向，应用不同的 CSS 样式。
 @media only screen and (min-width: 600px) {
-  //设置窗口为全屏
   .tight-container {
     --window-width: 100vw;
     --window-height: var(--full-height);

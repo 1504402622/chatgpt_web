@@ -15,13 +15,6 @@ export interface DialogType {
     count: number;
 }
 
-export interface Message {
-    avatar: string;
-    message: string;
-    message_type: MessageType;
-    time: number;
-    direction?: MessageDirection;
-}
 
 export enum MessageType {
     Link = "link",

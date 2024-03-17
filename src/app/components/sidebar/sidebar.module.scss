@@ -1,4 +1,4 @@
-sidebar.tsx.sidebar {
+.sidebar {
   top: 0;
   width: var(--sidebar-width);
   height: var(--full-height);
@@ -7,41 +7,28 @@ sidebar.tsx.sidebar {
 }
 
 .sidebar-header {
-  width: 34px;
-  height: 34px;
-  border-radius: 2px;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
   position: relative;
-  margin: 10px 5px;
-  border: #fcfcfc 2px solid;
+  margin: 45px auto 0;
+  border: #c7c7c7 1px solid;
 }
 
-//position: relative; 是 CSS 中的一种定位方式，用于相对于元素在文档流中的原始位置进行定位。
-//具体来说，当你将一个元素设置为 position: relative; 时，它会相对于其自身在正常文档流中的位置进行定位，而不会脱离文档流。
-// 然后，你可以通过设置 top, right, bottom, left 等属性来调整元素相对于其原始位置的偏移量。
-//例如，如果你将一个元素设置为 position: relative;，并且指定 top: 20px; left: 50px;，
-// 那么这个元素将会相对于其在正常文档流中的位置，向下偏移 20 个像素，向右偏移 50 个像素。
-//width: 34px;：指定了聊天框的宽度为34像素。
-//height: 34px;：指定了聊天框的高度为34像素。
-//position: relative;：将该聊天框设置为相对定位，使其相对于文档流中的原始位置进行定位。
-//margin: 100px auto 0;：设置了聊天框的外边距，其中100px表示顶部外边距为100像素，auto表示左右外边距自动适应，0表示底部外边距为0。
-
 .sidebar-chat {
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   position: relative;
-  margin: 20px 10px 0;
+  margin: 24px auto 0;
 }
 
 .sidebar-role {
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   position: relative;
   margin: 15px auto 0;
 }
 
-//按钮样式实现了根据鼠标移入和移出来控制图标的显示与隐藏
-//当鼠标移入按钮时，图标逐渐显示出来，透明度从0变为1。
-//当鼠标移出按钮时，图标逐渐隐藏，透明度从1变为0。
 .action-button {
   display: inline-flex;
   margin-top: 3px;

@@ -1,12 +1,25 @@
-.chat {
+.chat{
+  //以文件流的方式在最上方（右边）
   top: 0;
   width: var(--window-content-width) + 60px;
   height: var(--full-height);
-  /*保留元素正常文档流位置的同时，对其进行微调或与其后代元素进行相对定位。*/
   position: relative;
-  /*背景色*/
-  background-color: #ffffff;
-  text-align: center;
-  /*文字颜色*/
-  color: #fffefe;
+  //消息
+  background-color: #fff;
+  //消息文字颜色
+  color: #69b3c7;
+  //设置弹性盒子容器，能让其出容器
+  display: flex;
 }
+//.chat {
+//  top: 0;
+//  width: var(--window-content-width) + 60px;
+//  height: var(--full-height);
+//  /*保留元素正常文档流位置的同时，对其进行微调或与其后代元素进行相对定位。*/
+//  position: relative;
+//  /*背景色*/
+//  background-color: #ffffff;
+//  text-align: center;
+//  /*文字颜色*/
+//  color: #fffefe;
+//}

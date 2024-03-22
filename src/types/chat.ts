@@ -13,8 +13,6 @@ export interface Dialog {
     count: number;
 }
 
-//Message 接口定义了消息的结构，包括头像 (avatar)、内容 (content)、消息类型 (message_type)、
-// 时间 (time)、方向 (direction) 和角色 (role)。
 export interface Message {
     avatar: string;
     content: string;
@@ -22,18 +20,20 @@ export interface Message {
     time: number;
     direction?: MessageDirection;
     role: MessageRole;
+    id: string;
+    streaming?: boolean;
 }
 
-//表示 GPT 版本。
 export interface SessionConfig {
     gptVersion: GptVersion;
 }
-//枚举类角色
-export enum MessageRole{
-    system = 0,
-    user = 1,
-    assistant = 2
+
+export enum MessageRole {
+    system = "system",
+    user = "user",
+    assistant = "assistant",
 }
+
 export enum MessageType {
     Link = "link",
     Pic = "pic",

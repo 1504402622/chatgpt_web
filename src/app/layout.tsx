@@ -11,7 +11,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'OpenAi - 牛',
+  title: 'OpenAi - 格里菲斯',
   description: '您的 ChatGPT 贴心助手！',
 }
 
@@ -22,7 +22,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <head>
+      <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            var _hmt = _hmt || [];
+            (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?1fb9ea953cca3054fb89b3cdf4a41a59";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+          })();
+            `,
+          }}
+      />
+      <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+    </head>
+    <body className={inter.className}>{children}</body>
     </html>
   )
 }

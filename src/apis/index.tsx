@@ -2,7 +2,7 @@ import { GptVersion } from "@/app/constants";
 import { useAccessStore } from "@/app/store/access";
 import { MessageRole } from "@/types/chat";
 
-const host = "http://glfs.natapp1.cc";
+const host = "http://localhost:8090";
 
 
 /**

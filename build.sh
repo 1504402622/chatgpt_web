@@ -1,2 +1,2 @@
-docker build -f ./Dockerfile -t glfs/chatgpt-web:1.0 .
+docker build -f ./Dockerfile --platform linux/amd64 -t gelifisikk/chatgpt-web:1.1 .
 

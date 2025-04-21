@@ -2,7 +2,7 @@ import { GptVersion } from "@/app/constants";
 import { useAccessStore } from "@/app/store/access";
 import { MessageRole } from "@/types/chat";
 
-const host = "http://localhost:8090";
+const host = "http://14.103.246.14:8090";
 
 
 /**
@@ -40,6 +40,7 @@ export const completions = (data: {
     messages: {content: string; role: MessageRole}[],
     model: GptVersion
 }) => {
+    console.log("更新后的 session.config.gptVersion 值:", data);
     return fetch(`${host}/api/v1/chat/completions`, {
         method: 'post',
         headers: getHeaders(),

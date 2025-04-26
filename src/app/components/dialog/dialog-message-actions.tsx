@@ -74,15 +74,30 @@ export default function DialogMessagesActions(props: {
     const {config} = props
     return <div className={styles['chat-input-actions']}>
         <Select
-            value={config?.gptVersion??GptVersion.GPT_3_5_TURBO}
+            value={config?.gptVersion??GptVersion.GPT_4}
             style={{ width: 160 }}
             options={[
-                { value: GptVersion.GPT_3_5_TURBO, label: 'gpt-3.5-turbo' },
-                { value: GptVersion.GPT_3_5_TURBO_16K, label: 'gpt-3.5-turbo-16k' },
-                { value: GptVersion.TEXT_DAVINCI_002, label: 'text-davinci-002' },
-                { value: GptVersion.TEXT_DAVINCI_003, label: 'text-davinci-003' },
-                { value: GptVersion.GPT_4, label: 'gpt-4' },
-                { value: GptVersion.GPT_4_32K, label: 'gpt-4-32k' },
+                {
+                    value: GptVersion.GPT_3_5_TURBO,
+                    label: '🤖 gpt-3.5-turbo：性价比之王 | 响应快+成本低+通用场景'
+                },
+                {
+                    value: GptVersion.GPT_4,
+                    label: '🧠 gpt-4：全能学霸 | 复杂推理+精准回答+知识深度'
+                },
+                {
+                    value: GptVersion.GLM_4_Air,
+                    label: '🎯 glm-4-air：精准狙击 | 中文优化+事实准确+专业场景'
+                },
+                {
+                    value: GptVersion.GLM_4_FlashX,
+                    label: '⚡ glm-4-flashx：闪电模式 | 毫秒响应+轻量任务+流畅对话'
+                },
+                {
+                    value: GptVersion.DeepSeek_V3,
+                    label: '🚀 deepseek-chat：国产新星 | 长文本处理+代码理解+本地化优化'
+                },
+                // { value: GptVersion.DeepSeek_R1, label: 'deepseek-reasoner' },
             ]}
             onChange={(value) => {
                 chatStore.updateCurrentSession((session) => {

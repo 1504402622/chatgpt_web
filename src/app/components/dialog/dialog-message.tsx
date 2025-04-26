@@ -21,7 +21,7 @@ export function DialogMessage() {
     const currentSession = chatStore.currentSession();
     const location = useLocation();
     const {scrollRef, setAutoScroll, scrollToBottom} = userScrollToBottom();
-    const title = location.state?.title || "新的对话";
+    const title = location.state?.title || "新的对话-格里菲斯";
 
     // 输入事件
     const onEnter = async (value: string) => {

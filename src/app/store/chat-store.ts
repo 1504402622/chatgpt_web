@@ -42,7 +42,7 @@ function createChatSession(dialog?: {
         id: 0,
         dialog: {
             avatar: dialog?.avatar || "/role/wali.png",
-            title: dialog?.title || "新的对话",
+            title: dialog?.title || "开启智能对话",
             count: 0,
             subTitle: "请问有什么需要帮助的吗？",
             timestamp: new Date().getTime(),
@@ -60,7 +60,7 @@ function createChatSession(dialog?: {
         ],
         clearContextIndex: undefined,
         config: {
-            gptVersion: GptVersion.GPT_3_5_TURBO,
+            gptVersion: GptVersion.GLM_4_Air,
         }
     };
 }

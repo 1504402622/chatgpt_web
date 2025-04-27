@@ -1,5 +1,5 @@
 # 使用 Node.js 16 Alpine 作为基础镜像
-FROM node:18-alpine as build
+FROM node:18-alpine AS build
 
 ENV NEXT_PUBLIC_API_HOST_URL=""
 

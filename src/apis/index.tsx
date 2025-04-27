@@ -1,18 +1,18 @@
 import { GptVersion } from "@/app/constants";
-import { useAccessStore } from "@/app/store/access";
-import { MessageRole } from "@/types/chat";
 
-const host = "http://localhost:8090";
+import { MessageRole } from "@/types/chat";
+// const host = "http://localhost:8090";
+const host = "http://14.103.246.14:8090";
 
 
 /**
  * Header 信息
  */
 function getHeaders() {
-    const accessState = useAccessStore.getState()
+    // const accessState = useAccessStore.getState()
 
     const headers =  {
-        Authorization:  accessState.token,
+        // Authorization:  accessState.token,
         'Content-Type': 'application/json;charset=utf-8'
     }
 
@@ -51,13 +51,13 @@ export const completions = (data: {
  * 登录鉴权接口
  * @param token
  */
-export const login = (token: string) => {
-    const accessState = useAccessStore.getState()
-    return fetch(`${host}/api/v1/auth/login`, {
-        method: 'post',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: `code=${accessState.accessCode}`
-    });
-};
+// export const login = (token: string) => {
+//     const accessState = useAccessStore.getState()
+//     return fetch(`${host}/api/v1/auth/login`, {
+//         method: 'post',
+//         headers: {
+//             'Content-Type': 'application/x-www-form-urlencoded'
+//         },
+//         body: `code=${accessState.accessCode}`
+//     });
+// };

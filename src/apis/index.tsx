@@ -2,7 +2,8 @@ import { GptVersion } from "@/app/constants";
 import { useAccessStore } from "@/app/store/access";
 import { MessageRole } from "@/types/chat";
 
-const host = "http://14.103.246.14:8090";
+// const host = "http://14.103.246.14:8090";
+const host = "127.0.0.1:8090";
 
 
 /**
@@ -62,3 +63,28 @@ export const login = (token: string) => {
         body: `code=${accessState.accessCode}`
     });
 };
+
+
+/**
+ * 商品列表查询
+ */
+export const queryProductList = () => {
+    return fetch(`${host}/api/v1/sale/query_product_list`, {
+        method: "get",
+        headers: getHeaders(),
+    });
+}
+
+/**
+ * 用户商品下单，获得支付地址 url
+ */
+export const createPayOrder = (productId: number) => {
+    return fetch(`${host}/api/v1/sale/create_pay_order`, {
+        method: "post",
+        headers: {
+            ...getHeaders(),
+            "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
+        },
+        body: `productId=${productId}`
+    });
+}

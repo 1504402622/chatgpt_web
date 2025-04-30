@@ -8,8 +8,20 @@ import RehypeHighlight from "rehype-highlight";
 import { useRef, useState, RefObject, useEffect } from "react";
 import mermaid from "mermaid";
 import React from "react";
-import { useDebouncedCallback, useThrottledCallback } from "use-debounce";
+import { useDebouncedCallback } from "use-debounce";
 import LoadingIcon from "../../icons/three_dot.svg";
+
+// 配置 mermaid
+mermaid.initialize({
+    startOnLoad: false,
+    theme: "default",
+});
+
+// 全局日志记录函数
+const logError = (message: string, error: any) => {
+    console.error(`[Markdown] ${message}:`, error);
+};
+
 export function Mermaid(props: { code: string }) {
     const ref = useRef<HTMLDivElement>(null);
     const [hasError, setHasError] = useState(false);
@@ -23,7 +35,7 @@ export function Mermaid(props: { code: string }) {
                 })
                 .catch((e) => {
                     setHasError(true);
-                    console.error("[Mermaid] ", e.message);
+                    logError("Mermaid rendering error", e);
                 });
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -42,7 +54,7 @@ export function Mermaid(props: { code: string }) {
     }
 
     if (hasError) {
-        return null;
+        return <div className="mermaid-error">Mermaid rendering failed.</div>;
     }
 
     return (
@@ -78,17 +90,31 @@ export function PreCode(props: { children: any }) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [refText]);
 
+    const copyCode = () => {
+        if (ref.current) {
+            const text = ref.current.innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                console.log("Code copied to clipboard");
+            }).catch((error) => {
+                logError("Copy code error", error);
+            });
+        }
+    };
+
     return (
         <>
             {mermaidCode.length > 0 && (
                 <Mermaid code={mermaidCode} key={mermaidCode} />
             )}
             <pre ref={ref}>
-        <span
-            className="copy-code-button"
-        ></span>
+                <span
+                    className="copy-code-button"
+                    onClick={copyCode}
+                >
+                    Copy
+                </span>
                 {props.children}
-      </pre>
+            </pre>
         </>
     );
 }
@@ -131,23 +157,27 @@ export function Markdown(
         fontSize?: number;
         parentRef?: RefObject<HTMLDivElement>;
         defaultShow?: boolean;
+        className?: string;
+        style?: React.CSSProperties;
     } & React.DOMAttributes<HTMLDivElement>,
 ) {
+    const combinedStyle = {
+        fontSize: `${props.fontSize ?? 14}px`,
+        direction: /[\u0600-\u06FF]/.test(props.content) ? "rtl" : "ltr",
+        ...props.style
+    };
 
     return (
         <div
-            className="markdown-body"
-            style={{
-                fontSize: `${props.fontSize ?? 14}px`,
-                direction: /[\u0600-\u06FF]/.test(props.content) ? "rtl" : "ltr",
-            }}
+            className={`markdown-body ${props.className || ""}`}
+
+            ref={props.parentRef}
         >
-            {
-                props.loading ?
-                    <LoadingIcon />
-                    :
-                    <MarkdownContent content={props.content} />
-            }
+            {props.loading ? (
+                <LoadingIcon />
+            ) : (
+                <MarkdownContent content={props.content} />
+            )}
         </div>
     );
 }

@@ -2,8 +2,8 @@ import { GptVersion } from "@/app/constants";
 import { useAccessStore } from "@/app/store/access";
 import { MessageRole } from "@/types/chat";
 
-// const host = "http://14.103.246.14:8090";
-const host = "127.0.0.1:8090";
+const host = "http://14.103.246.14:8090";
+// const host = "127.0.0.1:8090";
 
 
 /**
@@ -88,3 +88,7 @@ export const createPayOrder = (productId: number) => {
         body: `productId=${productId}`
     });
 }
+
+/**
+ * 查看用户信息
+ */

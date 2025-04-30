@@ -1,124 +1,131 @@
 .sale {
   display: flex;
   flex-wrap: wrap;
-  font-family: "黑体", sans-serif;
+  justify-content: flex-start;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #f7f8f8, #f6f7f8);
   overflow-y: scroll;
+  padding: 20px;
 }
 
 .product {
-  width: 250px;
-  border-radius: 10px;
+  width: 280px;
+  border-radius: 15px;
   position: relative;
-  margin: 20px auto 0;
-  display: block;
-  flex-wrap: wrap;
-  background-color: #c8c2c2;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .product-name {
-  justify-content: center;
   font-weight: bold;
-  font-size: 16px;
-  margin: 30px auto 0;
+  font-size: 18px;
   text-align: center;
+  margin: 20px 0;
+  color: #333;
+  background: linear-gradient(to right, #007bff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .product-token {
-  justify-content: center;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 28px;
   text-align: center;
   color: #020202;
-  margin: 25px auto 0;
+  margin: 15px 0;
 }
 
 .product-token-subscript {
   font-size: 16px;
-  color: #000000;
-  font-weight: bold;
+  color: #666;
+  font-weight: normal;
 }
 
 .product-desc {
-  margin: 0 auto 10px;
-  width: 220px;
-  font-size: 12px;
+  margin: 0 20px 15px;
+  font-size: 14px;
   text-align: center;
+  color: #777;
+}
+
+.product-price-buy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .product-price {
-  width: 250px;
-  justify-content: center;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 22px;
   text-align: center;
-  color: #020202;
-  margin: 20px auto 0;
+  color: #ff6b6b;
+  margin-bottom: 15px;
 }
 
 .product-buy {
-  margin: 20px auto;
-  width: 180px;
+  margin: 0 20px 20px;
+  width: calc(100% - 40px);
   font-size: 18px;
-  background-color: #018d01;
+  background: linear-gradient(to right, #ff6b6b, #ff8e53);
   color: #ffffff;
-  border-radius: 4px;
+  border-radius: 8px;
   text-align: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 10px;
   cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+}
+
+.product-buy:hover {
+  background: linear-gradient(to right, #ff5252, #ff7043);
 }
 
 .product-pay {
   position: fixed;
   top: 0;
   left: 0;
-  width: var(--window-width);
-  height: var(--full-height);
-  background-color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: nowrap;
-}
-
-.product-pay-weixin {
-  position: fixed;
-  margin-top: -210px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #b81d1d;
-}
-
-.product-pay-close {
-  position: fixed;
-  margin-top: 200px;
-  background-color: #3b2300;
-  color: #c60000;
-  border-radius: 50px;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-size: 14px;
+  z-index: 1000;
+  flex-direction: column; /* 添加这一行，使子元素垂直排列 */
 }
 
 .product-pay-url {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #0ba800;
-  width: 250px;
-  height: 300px;
+  background-color: #ffffff;
+  width: 350px;
+  height: 350px;
   border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px; /* 添加这一行，增加二维码和关闭按钮之间的间距 */
 }
 
-.product-pay-prompt {
-  position: fixed;
-  margin-top: 260px;
-  color: #2a2a2a;
-  padding: 5px;
-  border-radius: 5px;
-  font-size: 12px;
+.product-pay-close {
+  background-color: #ff6b6b;
+  color: #ffffff;
+  border-radius: 25px;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
 }
 
-.QRCode {
-  transform: scale(4); /* 放大QRCode的尺寸 */
+.product-pay-close:hover {
+  background-color: #ff5252;
 }

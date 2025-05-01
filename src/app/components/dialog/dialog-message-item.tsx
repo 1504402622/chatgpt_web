@@ -53,7 +53,7 @@ export function DialogMessageItem(props: Props) {
                     </div>
                     <div className={styles['chat-message-edit']}>
                         <Space>
-                            <ChatAction icon={<SyncOutlined/>} text="重试" onClick={retryHandle}/>
+                            {/*<ChatAction icon={<SyncOutlined/>} text="重试" onClick={retryHandle}/>*/}
                             <ChatAction icon={<CopyOutlined/>} text="复制" onClick={copyHandle}/>
                             <ChatAction icon={<DeleteOutlined/>} text="删除" onClick={deleteHandle}/>
                         </Space>

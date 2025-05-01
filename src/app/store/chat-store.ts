@@ -42,7 +42,7 @@ function createChatSession(dialog?: {
         id: 0,
         dialog: {
             avatar: dialog?.avatar || "/role/wali.png",
-            title: dialog?.title || "开启智能对话",
+            title: dialog?.title || "Griffith",
             count: 0,
             subTitle: "请问有什么需要帮助的吗？",
             timestamp: new Date().getTime(),
